@@ -1,0 +1,29 @@
+{
+  "order_name": "Abhishek Third Order",
+  "order_date": "2020-11-19",
+  "order_type": 1,
+  "customer_id": 3,
+  "channel_id": 1,
+  "address1": "123 New Dom,\nbareilli,IN-67564",
+  "totalqty": 0,
+  "orderdate": "",
+  "productdetails": [
+    {
+      "product_id": 1,
+      "sku": "TA12345",
+      "Product_name": "Ivory Top Table",
+      "qty": 1,
+      "price": 105,
+      "totalvalue": 105
+    },
+    {
+      "product_id": 2,
+      "sku": "CH45788",
+      "Product_name": "Gray Chair",
+      "qty": 1,
+      "price": 90,
+      "totalvalue": 90
+    }
+  ],
+  "display_time": null
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<properties>
+        <!--<property name="logMsgPattern">%d{HH:mm:ss.SSS} %-5level - %msg%n</property>-->
+        <property name="logMsgPattern">%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level [%3t] %c:%L - %msg%n</property>
+        <property name="time">${date:yyyy-MM-dd HH_mm_ss}</property>
+        <property name="logDir">logs/${time}</property><!-- ${sys:testLogDir} -->
+        <property name="logFilename">print</property>
+    </properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <property name="logDir">logs/${date:yyyy_MM_dd HH:mm:ss.SSS}/</property>
+            <property name="logMsgPattern">%d{HH:mm:ss} %-5level - %msg%n</property> -->
+            <PatternLayout pattern="${logMsgPattern}"/>
+        </Console>
+
+        <Routing name="RoutingAppender">
+            <Routes pattern="${logFilename}">
+                <Route>
+                    <RollingFile name="Rolling-${logFilename}" fileName="${logDir}/${logFilename}.log"
+                                 filePattern="${logDir}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" ignoreExceptions="false">
+                                 
+<!--                         <PatternLayout pattern="%d{ABSOLUTE} %level{length=5} [%thread] %logger{1} - %msg%n"/>
+                        <SizeBasedTriggeringPolicy size="1 GB" />
+						<TimeBasedTriggeringPolicy interval="1" modulate="true" />	 -->
+						<PatternLayout pattern="${logMsgPattern}"/>
+						   <Policies>
+                                <OnStartupTriggeringPolicy />
+                            </Policies> 			
+                    </RollingFile>
+                </Route>
+
+                <!-- By having this set to ${logFilename} it will match when filename
+                     is not set in the context -->
+                <Route ref="Console" key="${logFilename}"/>
+            </Routes>
+        </Routing>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="RoutingAppender"/>
+            <!-- <AppenderRef ref="Console" /> -->
+        </Root>       
+        <Logger name="org.apache.jmeter" level="ERROR" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.nucleus" level="DEBUG" additivity="true">
+            <AppenderRef ref="RoutingAppender"/>
+        </Logger>		
+		
+    </Loggers>
+</Configuration>
