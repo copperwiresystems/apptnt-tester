@@ -5,6 +5,7 @@ import static io.restassured.RestAssured.given;
 import java.util.HashMap;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import copperwire.io.tnt.BaseTest;
@@ -16,7 +17,7 @@ import tntRestAutomation.ReusableMethods;
 
 public class GetOrderByIdTest extends BaseTest {
 
-	private static String order_id = "132";
+	private static String order_id = "";
 	private static String order_no = "";
 	private static String inspect_id = "";
 	private static String rfq_id = "";
@@ -36,11 +37,11 @@ public class GetOrderByIdTest extends BaseTest {
 
 				.then().log().all().assertThat().statusCode(200).extract().response();// response().seasString();
 		ReusableMethods.setSessionId(response.header("Authorization"));
-		order_id = (null != getOrder_id()) ? getOrder_id() :order_id ;
 	}
-
+	@Parameters({ "order_id"})
 	@Test(priority = 1)
-	public void fetchOrderById() {
+	public void fetchOrderById(String order_id) {
+		GetOrderByIdTest.order_id = order_id;
 		String res = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 
