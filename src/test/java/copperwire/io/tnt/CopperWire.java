@@ -1,17 +1,10 @@
 package copperwire.io.tnt;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.relevantcodes.extentreports.LogStatus;
-
-import copperwire.io.tnt.orders.CreateSalesOrderTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import tntRestAutomation.ExtentReportListner;
 import tntRestAutomation.Resources;
 import tntRestAutomation.ReusableMethods;
 

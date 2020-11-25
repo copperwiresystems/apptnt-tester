@@ -4,9 +4,11 @@ import static io.restassured.RestAssured.given;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.TestNG;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import copperwire.io.listeners.TestAnnotationTransformerListener;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import tntRestAutomation.Resources;
@@ -14,7 +16,7 @@ import tntRestAutomation.ReusableMethods;
 
 public class GetAllOrdersTest {
 	public static Logger log = LogManager.getLogger(GetAllOrdersTest.class.getName());
-	
+
 	@BeforeTest
 	public void beforeTest() {
 		RestAssured.baseURI = Resources.BASE_URI;
@@ -27,6 +29,7 @@ public class GetAllOrdersTest {
 
 				.then().log().all().assertThat().statusCode(200).extract().response();
 		ReusableMethods.setSessionId(response.header("Authorization"));
+
 	}
 
 	@Test(priority = 1)

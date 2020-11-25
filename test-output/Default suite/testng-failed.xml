@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest">
+      <class name="copperwire.io.tnt.orders.GetAllOrdersTest">
         <methods>
-          <include name="fetchOrderById"/>
+          <include name="fetchAllOrders"/>
           <include name="beforeTest"/>
         </methods>
-      </class> <!-- copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest -->
+      </class> <!-- copperwire.io.tnt.orders.GetAllOrdersTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,11 +1,23 @@
 package tntRestAutomation;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 public class ReusableMethods {
 
 	private static String sessionId;
+	private static Properties property = null;
+	private static final String EMAIL_FILE_PATH = "./src/main/resources/email.properties";
+	private static Map<String, Boolean> allowedExecutionOrder = new LinkedHashMap<String, Boolean>();
+	private static String executeUpto = null;
 
 	public static String getSessionId() {
 		return sessionId;
@@ -16,15 +28,16 @@ public class ReusableMethods {
 	}
 
 	public static String getLogInCredentials() {
-		return "{\"email\":\"admin@copperwire.io\",\"password\":\"C0pp3rw1r3\",\"remember\":false}";
+		String email = TestPropertyReader.getProperty("email");
+		String password = TestPropertyReader.getProperty("password");
+		return "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"remember\":false}";
 	}
 
 	public static String getBookPayload(String orderId, String rfq_id, String rfqs_carrier_id, String carrier_id,
 			String quote_id, String quote_date) {
 		return "{\r\n" + "  \"order_id\": " + orderId + ",\r\n" + "  \"rfq_id\": " + rfq_id + ",\r\n"
-				+ "  \"rfqs_carriers_id\": " + rfqs_carrier_id + ",\r\n" + "  \"carrier_id\": " + carrier_id
-				+ ",\r\n" + "  \"quote_id\": \"" + quote_id + "\",\r\n" + "  \"quote_date\": \"" + quote_date
-				+ "\"\r\n" + "}";
+				+ "  \"rfqs_carriers_id\": " + rfqs_carrier_id + ",\r\n" + "  \"carrier_id\": " + carrier_id + ",\r\n"
+				+ "  \"quote_id\": \"" + quote_id + "\",\r\n" + "  \"quote_date\": \"" + quote_date + "\"\r\n" + "}";
 	}
 
 	public static String getNewSalesOrder(String orderName, String orderDate) {
@@ -73,9 +86,61 @@ public class ReusableMethods {
 		String dateWithSeconds = dateFormatHr.format(new Date());
 		return dateWithSeconds;
 	}
-	
-	public static void main(String []ar) {
+
+	public static String getProperty(String name) throws IOException {
+		if (null == property) {
+			FileInputStream fis = new FileInputStream(EMAIL_FILE_PATH);
+			property = new Properties();
+			property.load(fis);
+		}
+		return property.getProperty(name);
+	}
+
+	public static void main(String[] ar) {
 		System.out.println(getBookPayload("120", "51", "56", "1", "123", "2020-11-20"));
+	}
+
+	public static void initStage(String upto) {
+		executeUpto = upto;
+	}
+
+	public static <T> void addMethod(Class<T> callingClass) {
+		Method[] methods = callingClass.getMethods();
+
+		for (Method method : methods) {
+			String methodName = method.getName();
+			if (methodName.toLowerCase().startsWith("beforeclass") || methodName.toLowerCase().startsWith("init")) {
+				System.out.println("Class Object Contains" + " Method whose name is " + methodName);
+				continue;
+			}
+			allowedExecutionOrder.put(methodName, false);
+		}
+
+//		allowedExecutionOrder.put("fetchOrderById", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+//		allowedExecutionOrder.put("", false);
+	}
+
+	public static boolean getStage(String annotationParam) {
+		boolean status = false;
+		// No data continue test
+		if (null == executeUpto || 0 == executeUpto.length()) {
+			System.out.println("No data continue Test");
+			status = false;
+		}
+
+		// Match found stop test execution after this
+		else if (executeUpto.equalsIgnoreCase(annotationParam)) {
+			System.out.println("match found skip rest of tests");
+			status = true;
+		}
+		return status;
 	}
 
 }

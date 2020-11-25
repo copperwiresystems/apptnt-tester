@@ -5,6 +5,7 @@ import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.annotations.AfterTest;
 
 public class BaseTest {
 	private static String order_id;
@@ -187,5 +188,4 @@ public class BaseTest {
 	public static void setRfq_carrier_quote_id(String rfq_carrier_quote_id) {
 		BaseTest.rfq_carrier_quote_id = rfq_carrier_quote_id;
 	}
-
 }

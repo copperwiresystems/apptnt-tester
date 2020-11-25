@@ -2,7 +2,7 @@ package tntRestAutomation;
 
 public class Resources {
 
-	public static final String BASE_URI = "http://tnt7.copperwiresystems.com";
+	public static final String BASE_URI;
 
 	public static final String CREATE_CUSTOMER = "/api/customer";
 
@@ -29,12 +29,18 @@ public class Resources {
 	public static final String RFQS = "/api/rfqs";
 
 	public static final String BOOK_RFQ = "/api/quotation";
+
+	public static final String PICKUP_N_SHIP = "/api/pickupship";
+
+	public static final String PICKUP_N_SHIP_SEND_MAIL = "/api/pickupship/sendmail";
+
+	public static final String CUSTOMER_FEEBACK = "/api/feedback";
+
+	public static final String INVOICE = "/api/invoices";
+
 	
-	public static final String PICKUP_N_SHIP="/api/pickupship";
-	
-	public static final String PICKUP_N_SHIP_SEND_MAIL="/api/pickupship/sendmail";
-	
-	public static final String CUSTOMER_FEEBACK="/api/feedback";
-	
-	public static final String INVOICE="/api/invoices";
+	//Static property init
+	static {
+		BASE_URI = TestPropertyReader.getBaseUri();
+	}
 }

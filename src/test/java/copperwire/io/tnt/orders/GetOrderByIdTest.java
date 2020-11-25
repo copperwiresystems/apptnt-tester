@@ -3,7 +3,6 @@ package copperwire.io.tnt.orders;
 import static io.restassured.RestAssured.given;
 
 import java.util.HashMap;
-
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -38,10 +37,26 @@ public class GetOrderByIdTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response();// response().seasString();
 		ReusableMethods.setSessionId(response.header("Authorization"));
 	}
-	@Parameters({ "order_id"})
-	@Test(priority = 1)
-	public void fetchOrderById(String order_id) {
+
+	// This is dependent API of fetchOrderById
+
+	@Test(priority = 1, description = "GET_ORDER", dependsOnMethods = { "fetchOrderById" })
+	public void fetchProductDetailsById() {
+		given().log().all().header("Content-Type", "application/json")
+				.header("Authorization", ReusableMethods.getSessionId())
+
+				.when().log().all().get(Resources.FETCH_ORDERED_PRODUCT_DETAILS_BY_ID + "/" + order_id)
+
+				.then().log().all().assertThat().statusCode(200).extract().response().asString();
+	}
+
+	@Parameters({ "order_id", "upto_stage" })
+	@Test
+	public void fetchOrderById(String order_id, String upto_stage) {
+		System.out.println("Received Param : " + upto_stage + " " + order_id);
+		ReusableMethods.initStage(upto_stage);
 		GetOrderByIdTest.order_id = order_id;
+
 		String res = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 
@@ -59,18 +74,8 @@ public class GetOrderByIdTest extends BaseTest {
 		customerFeedback_id = Integer.toString((Integer) var.get("data.CustomerFeedback[0].id"));
 	}
 
-	@Test(priority = 2)
-	public void fetchProductDetailsById() {
-		given().log().all().header("Content-Type", "application/json")
-				.header("Authorization", ReusableMethods.getSessionId())
-
-				.when().log().all().get(Resources.FETCH_ORDERED_PRODUCT_DETAILS_BY_ID + "/" + order_id)
-
-				.then().log().all().assertThat().statusCode(200).extract().response().asString();
-	}
-
 	// This is similar to click on verify link of first option of Inspect and Pack
-	@Test(priority = 3)
+	@Test(priority = 2, description = "INSPECT_AND_PACK")
 	public void verifyInspectAndPack() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -86,7 +91,7 @@ public class GetOrderByIdTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 3, description = "RFQ")
 	public void verifyRfq() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -103,7 +108,7 @@ public class GetOrderByIdTest extends BaseTest {
 
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 4, description = "BOOK")
 	public void verifyBook() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -120,7 +125,7 @@ public class GetOrderByIdTest extends BaseTest {
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 5, description = "PICKUP_AND_SHIP")
 	public void verifyPickupAndShip() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -137,24 +142,7 @@ public class GetOrderByIdTest extends BaseTest {
 
 	}
 
-	@Test(priority = 7)
-	public void verifyInvoice() {
-
-		HashMap<String, String> queryParam = new HashMap<String, String>();
-		queryParam.put("orderno", order_no);
-		queryParam.put("order_id", order_id);
-		queryParam.put("invoice_id", invoice_id);
-
-		given().log().all().header("Content-Type", "application/json")
-				.header("Authorization", ReusableMethods.getSessionId()).queryParams(queryParam)
-
-				.when().get(Resources.VERIFY_RFQ)
-
-				.then().log().all().assertThat().statusCode(200).extract().response().asString();
-
-	}
-
-	@Test(priority = 8)
+	@Test(priority = 6, description = "FEEDBACK")
 	public void verifyCustomerAcceptance() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -171,4 +159,20 @@ public class GetOrderByIdTest extends BaseTest {
 
 	}
 
+	@Test(priority = 7, description = "INVOICE")
+	public void verifyInvoice() {
+
+		HashMap<String, String> queryParam = new HashMap<String, String>();
+		queryParam.put("orderno", order_no);
+		queryParam.put("order_id", order_id);
+		queryParam.put("invoice_id", invoice_id);
+
+		given().log().all().header("Content-Type", "application/json")
+				.header("Authorization", ReusableMethods.getSessionId()).queryParams(queryParam)
+
+				.when().get(Resources.VERIFY_RFQ)
+
+				.then().log().all().assertThat().statusCode(200).extract().response().asString();
+
+	}
 }
