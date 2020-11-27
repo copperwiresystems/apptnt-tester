@@ -30,8 +30,8 @@ public class RunTestNG {
 	public static void main(String[] args) {
 		try {
 			step();
-			EmailReport.sendReport();
-		} catch (IOException e) {
+			//EmailReport.sendReport();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

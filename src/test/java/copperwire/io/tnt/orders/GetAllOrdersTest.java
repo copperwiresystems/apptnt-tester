@@ -19,10 +19,11 @@ public class GetAllOrdersTest {
 
 	@BeforeTest
 	public void beforeTest() {
+		System.out.println("Executing Test Class : <GetAllOrdersTest>");
+
 		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 
-		log.info("Before test executing");
 		// Do Login
 		Response response = given().log().all().header("Content-Type", "application/json")
 				.body(ReusableMethods.getLogInCredentials()).when().log().all().post("/api/auth/login")

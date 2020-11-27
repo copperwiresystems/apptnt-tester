@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import copperwire.io.tnt.BaseTest;
@@ -20,6 +21,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	@BeforeTest
 	public void beforeTest() {
+		System.out.println("Executing Test Class : <CreateSalesOrderAndVerifyOrdersTest>");
 		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 
@@ -32,8 +34,11 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
+	@Parameters({ "upto_stage" })
 	@Test(priority = 1)
-	public void createNewSalesOrder() {
+	public void createNewSalesOrder(String upto_stage) {
+		resolveCustomInputs(upto_stage);
+
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 				.body(ReusableMethods.getNewSalesOrder(
@@ -288,7 +293,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	//////////////////////////////////////////////////////////////////////////////
 	///////////////////////////Verify Begins/////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
-	@Test(priority = 11)
+	@Test(priority = 12,description = "GET_ORDER")
 	public void fetchOrderById() {
 		given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
@@ -298,7 +303,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 	}
 
-	@Test(priority = 12)
+	@Test(priority = 13)
 	public void fetchProductDetailsById() {
 		given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
@@ -309,7 +314,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	}
 
 	// This is similar to click on verify link of first option of Inspect and Pack
-	@Test(priority = 13)
+	@Test(priority = 14, description = "INSPECT_AND_PACK")
 	public void verifyInspectAndPack() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -325,7 +330,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 15, description = "RFQ")
 	public void verifyRfq() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -342,7 +347,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 16, description = "BOOK")
 	public void verifyBook() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -359,7 +364,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 16)
+	@Test(priority = 17, description = "PICKUP_AND_SHIP")
 	public void verifyPickupAndShip() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -376,7 +381,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 17)
+	@Test(priority = 18, description = "INVOICE")
 	public void verifyInvoice() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -393,7 +398,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 18)
+	@Test(priority = 19, description = "FEEDBACK")
 	public void verifyCustomerAcceptance() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -409,4 +414,18 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 
 	}
+	
+	////////////////// RESOLVE INPUTS //////////////////////////////////////////////
+	private void resolveCustomInputs(String upto_stage) {
+		System.out.println("Received Param from maven : " + System.getProperty("upto_stage") + " "
+				+ System.getProperty("order_id"));
+		
+		ReusableMethods.initStage(upto_stage);
+
+		String upto = System.getProperty("upto_stage");
+		if (null != upto && 0 < upto.length()) {
+			ReusableMethods.initStage(upto);
+		}
+	}
+	
 }

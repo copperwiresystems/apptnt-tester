@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 import java.util.HashMap;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -27,6 +28,8 @@ public class GetOrderByIdTest extends BaseTest {
 
 	@BeforeTest
 	public void beforeTest() {
+		System.out.println("Executing Test Class : <GetOrderByIdTest>");
+
 		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 
@@ -53,9 +56,14 @@ public class GetOrderByIdTest extends BaseTest {
 	@Parameters({ "order_id", "upto_stage" })
 	@Test
 	public void fetchOrderById(String order_id, String upto_stage) {
-		System.out.println("Received Param : " + upto_stage + " " + order_id);
-		ReusableMethods.initStage(upto_stage);
-		GetOrderByIdTest.order_id = order_id;
+//		System.out.println("Received Param : " + upto_stage + " " + order_id);
+//		ReusableMethods.initStage(upto_stage);
+//		GetOrderByIdTest.order_id = order_id;
+//		
+//		String customerCode= System.getProperty("order_id"); 
+//		System.out.println("Received Param from maven : " + System.getProperty("upto_stage")  + " " + System.getProperty("order_id"));
+
+		resolveCustomInputs(order_id, upto_stage);
 
 		String res = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
@@ -111,6 +119,7 @@ public class GetOrderByIdTest extends BaseTest {
 	@Test(priority = 4, description = "BOOK")
 	public void verifyBook() {
 
+		//NOTE: QueryParam is diff from verifyRfq
 		HashMap<String, String> queryParam = new HashMap<String, String>();
 		queryParam.put("orderno", order_no);
 		queryParam.put("order_id", order_id);
@@ -174,5 +183,24 @@ public class GetOrderByIdTest extends BaseTest {
 
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 
+	}
+
+	////////////////// RESOLVE INPUTS //////////////////////////////////////////////
+	private void resolveCustomInputs(String order_id2, String upto_stage) {
+		System.out.println("Received Param form testng.xml : " + upto_stage + " " + order_id2);
+		System.out.println("Received Param from maven : " + System.getProperty("upto_stage") + " "
+				+ System.getProperty("order_id"));
+		
+		ReusableMethods.initStage(upto_stage);
+		GetOrderByIdTest.order_id = order_id2;
+
+		String customerCode = System.getProperty("order_id");
+		String upto = System.getProperty("upto_stage");
+		if (null != customerCode && 0 < customerCode.length()) {
+			GetOrderByIdTest.order_id = customerCode;
+		}
+		if (null != upto && 0 < upto.length()) {
+			ReusableMethods.initStage(upto);
+		}
 	}
 }

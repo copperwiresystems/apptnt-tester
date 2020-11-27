@@ -1,0 +1,167 @@
+2020-11-27 14:47:04 DEBUG BasicClientConnectionManager:161 - Get connection for route {}->http://tnt7.copperwiresystems.com:80
+2020-11-27 14:47:05 DEBUG DefaultClientConnectionOperator:177 - Connecting to tnt7.copperwiresystems.com:80
+2020-11-27 14:47:06 DEBUG RequestAddCookies:123 - CookieSpec selected: ignoreCookies
+2020-11-27 14:47:06 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+2020-11-27 14:47:06 DEBUG RequestTargetAuthentication:80 - Target auth state: UNCHALLENGED
+2020-11-27 14:47:06 DEBUG RequestProxyAuthentication:89 - Proxy auth state: UNCHALLENGED
+2020-11-27 14:47:06 DEBUG DefaultHttpClient:682 - Attempt 1 to execute request
+2020-11-27 14:47:06 DEBUG DefaultClientConnection:274 - Sending request: POST /api/auth/login HTTP/1.1
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "POST /api/auth/login HTTP/1.1[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Accept: */*[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Content-Length: 72[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Host: tnt7.copperwiresystems.com[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  >> "[\r][\n]"
+2020-11-27 14:47:06 DEBUG headers:278 - >> POST /api/auth/login HTTP/1.1
+2020-11-27 14:47:06 DEBUG headers:281 - >> Accept: */*
+2020-11-27 14:47:06 DEBUG headers:281 - >> Content-Type: application/json; charset=UTF-8
+2020-11-27 14:47:06 DEBUG headers:281 - >> Content-Length: 72
+2020-11-27 14:47:06 DEBUG headers:281 - >> Host: tnt7.copperwiresystems.com
+2020-11-27 14:47:06 DEBUG headers:281 - >> Connection: Keep-Alive
+2020-11-27 14:47:06 DEBUG headers:281 - >> User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)
+2020-11-27 14:47:06 DEBUG headers:281 - >> Accept-Encoding: gzip,deflate
+2020-11-27 14:47:06 DEBUG wire:87 -  >> "{"email":"admin@copperwire.io","password":"C0pp3rw1r3","remember":false}"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "HTTP/1.1 200 OK[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Date: Fri, 27 Nov 2020 09:17:05 GMT[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Server: Apache/2.4.29 (Ubuntu)[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Cache-Control: no-cache, private[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "X-RateLimit-Limit: 60[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "X-RateLimit-Remaining: 59[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Content-Length: 476[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Keep-Alive: timeout=5, max=100[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "Content-Type: application/json[\r][\n]"
+2020-11-27 14:47:06 DEBUG wire:73 -  << "[\r][\n]"
+2020-11-27 14:47:06 DEBUG DefaultClientConnection:259 - Receiving response: HTTP/1.1 200 OK
+2020-11-27 14:47:06 DEBUG headers:262 - << HTTP/1.1 200 OK
+2020-11-27 14:47:06 DEBUG headers:265 - << Date: Fri, 27 Nov 2020 09:17:05 GMT
+2020-11-27 14:47:06 DEBUG headers:265 - << Server: Apache/2.4.29 (Ubuntu)
+2020-11-27 14:47:06 DEBUG headers:265 - << Cache-Control: no-cache, private
+2020-11-27 14:47:06 DEBUG headers:265 - << Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8
+2020-11-27 14:47:06 DEBUG headers:265 - << X-RateLimit-Limit: 60
+2020-11-27 14:47:06 DEBUG headers:265 - << X-RateLimit-Remaining: 59
+2020-11-27 14:47:06 DEBUG headers:265 - << Content-Length: 476
+2020-11-27 14:47:06 DEBUG headers:265 - << Keep-Alive: timeout=5, max=100
+2020-11-27 14:47:06 DEBUG headers:265 - << Connection: Keep-Alive
+2020-11-27 14:47:06 DEBUG headers:265 - << Content-Type: application/json
+2020-11-27 14:47:06 DEBUG DefaultHttpClient:509 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:06 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:545 - Parsing response as: application/json
+2020-11-27 14:47:06 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:548 - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+2020-11-27 14:47:06 DEBUG wire:87 -  << "{"id":1,"name":"Copperwire Admin","email":"admin@copperwire.io","roles":["admin"],"permissions":["view menu Orders","view menu Documents","view menu Inspect & Pack","view menu RFQ & Book","view menu Pickup & Ship","view menu Invoice","view menu Deliver \/ Accept","view menu Categories","view menu Products","view menu Channel","view menu Customer","view menu Carrier","view menu Location","manage user","manage permission"],"avatar":"images\/users\/default.png","active":"1"}"
+2020-11-27 14:47:06 DEBUG BasicClientConnectionManager:200 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@433ffad1
+2020-11-27 14:47:06 DEBUG BasicClientConnectionManager:225 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:06 DEBUG BasicClientConnectionManager:161 - Get connection for route {}->http://tnt7.copperwiresystems.com:80
+2020-11-27 14:47:06 DEBUG DefaultClientConnectionOperator:177 - Connecting to tnt7.copperwiresystems.com:80
+2020-11-27 14:47:07 DEBUG RequestAddCookies:123 - CookieSpec selected: ignoreCookies
+2020-11-27 14:47:07 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+2020-11-27 14:47:07 DEBUG RequestProxyAuthentication:89 - Proxy auth state: UNCHALLENGED
+2020-11-27 14:47:07 DEBUG DefaultHttpClient:682 - Attempt 1 to execute request
+2020-11-27 14:47:07 DEBUG DefaultClientConnection:274 - Sending request: GET /api/orders/136 HTTP/1.1
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "GET /api/orders/136 HTTP/1.1[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Accept: */*[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Host: tnt7.copperwiresystems.com[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  >> "[\r][\n]"
+2020-11-27 14:47:07 DEBUG headers:278 - >> GET /api/orders/136 HTTP/1.1
+2020-11-27 14:47:07 DEBUG headers:281 - >> Content-Type: application/json; charset=UTF-8
+2020-11-27 14:47:07 DEBUG headers:281 - >> Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8
+2020-11-27 14:47:07 DEBUG headers:281 - >> Accept: */*
+2020-11-27 14:47:07 DEBUG headers:281 - >> Host: tnt7.copperwiresystems.com
+2020-11-27 14:47:07 DEBUG headers:281 - >> Connection: Keep-Alive
+2020-11-27 14:47:07 DEBUG headers:281 - >> User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)
+2020-11-27 14:47:07 DEBUG headers:281 - >> Accept-Encoding: gzip,deflate
+2020-11-27 14:47:07 DEBUG wire:73 -  << "HTTP/1.1 200 OK[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Date: Fri, 27 Nov 2020 09:17:06 GMT[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Server: Apache/2.4.29 (Ubuntu)[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Vary: Authorization[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Cache-Control: no-cache, private[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "X-RateLimit-Limit: 60[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "X-RateLimit-Remaining: 59[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Content-Length: 7429[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Keep-Alive: timeout=5, max=100[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "Content-Type: application/json[\r][\n]"
+2020-11-27 14:47:07 DEBUG wire:73 -  << "[\r][\n]"
+2020-11-27 14:47:07 DEBUG DefaultClientConnection:259 - Receiving response: HTTP/1.1 200 OK
+2020-11-27 14:47:07 DEBUG headers:262 - << HTTP/1.1 200 OK
+2020-11-27 14:47:07 DEBUG headers:265 - << Date: Fri, 27 Nov 2020 09:17:06 GMT
+2020-11-27 14:47:07 DEBUG headers:265 - << Server: Apache/2.4.29 (Ubuntu)
+2020-11-27 14:47:07 DEBUG headers:265 - << Vary: Authorization
+2020-11-27 14:47:07 DEBUG headers:265 - << Cache-Control: no-cache, private
+2020-11-27 14:47:07 DEBUG headers:265 - << X-RateLimit-Limit: 60
+2020-11-27 14:47:07 DEBUG headers:265 - << X-RateLimit-Remaining: 59
+2020-11-27 14:47:07 DEBUG headers:265 - << Content-Length: 7429
+2020-11-27 14:47:07 DEBUG headers:265 - << Keep-Alive: timeout=5, max=100
+2020-11-27 14:47:07 DEBUG headers:265 - << Connection: Keep-Alive
+2020-11-27 14:47:07 DEBUG headers:265 - << Content-Type: application/json
+2020-11-27 14:47:07 DEBUG DefaultHttpClient:509 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:07 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:545 - Parsing response as: application/json
+2020-11-27 14:47:07 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:548 - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+2020-11-27 14:47:07 DEBUG wire:87 -  << "{"data":{"id":136,"orderno":"SO03826","orderdate":"2020-11-20 00:00:00","ordername":"Abhishek-via Automation 2020-11-20 04-46-23","ordertype_id":1,"order_type":{"id":1,"name":"Express","active":"1","created_at":"2020-03-17 07:12:10","updated_at":"2020-03-17 07:12:10"},"customer":{"id":3,"name":"aak","address1":"123 New Dom","address2":null,"city":"bareilli","state":"UP","country":"IN","postal_code":"67564","phone":null,"mobile_phone":"4567899876","emailid":"aakaak267@gmail.com","active":"1","created_at":"2020-05-23 08:53:02","updated_at":"2020-08-04 22:30:22"},"channel":{"id":1,"name":"Amazon","contact_person":"kim@amazon.il","contact_no":"5679845678","active":"1","created_at":"2020-03-17 07:18:52","updated_at":"2020-03-17 07:18:52"},"qty":"2","price":"195.00","status":"New","action":"Ordered","hash_order_no":"a6df9e44b52f8676ee290f3716a4803f","order_product":[{"id":206,"product_id":1,"order_id":136,"price":"105.00","quantity":1,"cancel":"0","created_at":"2020-11-20 11:16:23","updated_at":"2020-11-20 11:16:23","products":{"id":1,"sku":"TA12345","name":"Ivory Top Table","category_id":2,"template":"Table T","shipping_policy":"Ground","description":"White top","special_handling_instructions":"Fragile","dims":"4 X 5 X 6","weight":"23","color":"White","other_attributes":"Light","price":105,"active":"1","created_at":"2020-03-17 07:20:50","updated_at":"2020-07-20 23:20:10","categories":{"id":2,"name":"Table","active":"1","categories_url":"http:\/\/google.com","created_at":"2020-03-17 07:10:37","updated_at":"2020-03-17 07:10:37","_lft":2,"_rgt":3,"parent_id":1}}},{"id":207,"product_id":2,"order_id":136,"price":"90.00","quantity":1,"cancel":"0","created_at":"2020-11-20 11:16:23","updated_at":"2020-11-20 11:16:23","products":{"id":2,"sku":"CH45788","name":"Gray Chair","category_id":3,"template":"Wooden Chair","shipping_policy":"Ground","description":"Gray Wooden chair","special_handling_instructions":"Fold and pack","dims":"2 X 3 X 3","weight":"12","color":"Gray","other_attributes":"Light","price":90,"active":"1","created_at":"2020-03-17 07:22:06","updated_at":"2020-03-17 07:22:06","categories":{"id":3,"name":"Chair","active":"1","categories_url":"htttp:\/\/google.com","created_at":"2020-03-17 07:10:57","updated_at":"2020-03-17 07:10:57","_lft":4,"_rgt":5,"parent_id":1}}}],"cancel":"0","InspectPacking":[{"id":186,"order_id":136,"inspected_by":"ASR-AUTOMATION","inspected_date":"2020-11-20 04:46:24","packed_date":"2020-11-20 04:46:24","location_id":1,"pallet_dimension_id":1,"VGM":"1","noo"
+2020-11-27 14:47:07 DEBUG wire:87 -  << "fpieces":2,"description":"Hi I am done by automation","packagecondition":"Good","packagenoofpieces":2,"packageuom":"Kgs","packagevgm":1,"dimh":3,"dimw":2,"diml":1,"status":"inspection","transactionid":"","cancel":"0","created_at":"2020-11-20 11:16:25","updated_at":"2020-11-20 11:16:25","location":{"id":1,"name":"Dublin","active":"1","created_at":"2020-03-17 07:12:41","updated_at":"2020-03-17 07:12:41"},"pallet_dimensions":{"id":1,"name":"Mid","dimensions":"5 X 6 X 7","pallet_weight":"20","max_weight":"25","active":"1","created_at":"2020-03-17 07:11:31","updated_at":"2020-03-17 07:11:31"},"inspect_packing_images":[{"id":244,"inspect_packing_id":186,"name":"13620201120111625972565.png","order":0,"transactionid":"","created_at":"2020-11-20 11:16:25","updated_at":"2020-11-20 11:16:25","active":"1"}]}],"Rfqs":[{"id":67,"rfq_no":"RFQ0067","rfq_date":"2020-11-20 00:00:00","order_id":136,"Estimate_delivery_date":"2020-11-20 00:00:00","rfq_pickdate":"2020-11-20 00:00:00","location_id":1,"rfq_closing_date":"2020-11-20 00:00:00","status":"Booked","description":null,"rfq_documents":"5fb7a58ae22b91605870986.pdf","active":"1","cancel":"0","created_at":"2020-11-20 11:16:29","updated_at":"2020-11-20 11:16:35","bctxnid":"a3bfd4f9bfb9fd16303145b0147c26bd350398a7831c3a1c7d4dfa6760b1465b","rfqs_carrier_count":1,"location":{"id":1,"name":"Dublin","active":"1","created_at":"2020-03-17 07:12:41","updated_at":"2020-03-17 07:12:41"},"rfqs_carrier":[]}],"Quotations":[{"id":47,"quote_no":"123","order_id":136,"rfq_id":67,"rfqs_carriers_id":72,"carrier_id":1,"booked_date":"2020-11-20 00:00:00","status":"Booked","cancel":"0","created_at":"2020-11-20 11:16:35","updated_at":"2020-11-20 11:16:35","carrier":{"id":1,"name":"Fedex","address1":"12 Bond St","address2":null,"city":"Laramie","state":"WY","country":"USA","postal_code":"89765","phone":null,"emailid":"support-wy@fedex.co","contact_person":"Lin Tim","contact_no":"5674539826","active":"1","DeliveryTerms":"Ground","created_at":"2020-03-17 07:14:13","updated_at":"2020-03-17 07:14:13"},"rfqs_carrier":{"id":72,"rfq_id":67,"carrier_id":1,"quoted_price":"150.00","quote_id":"123","quote_date":"2020-11-20 00:00:00","delivery_date":"2020-11-20 00:00:00","carrier_note":"HI Carrier not by Automation","attached_documents":"120201120111626926644.pdf","status":"Booked","active":"1","cancel":"0","created_at":"2020-11-20 11:16:29","updated_at":"2020-11-20 11:16:35","carrier":{"id":1,"name":"Fedex","address1":"12 Bond St","address2":null,"city":"Laramie","state":"WY","country":"USA","postal_code":"89765","phone":null,"emailid":"support-wy@fedex.co","contact_person":"Lin Tim","contact_no":"5674539826","active":"1","DeliveryTerms":"Ground","created_at":"2020-03-17 07:14:13","updated_at":"2020-03-17 07:14:13"}}}],"Pickupship":[{"id":41,"order_id":136,"rfq_id":67,"quote_id":47,"booking_id":"BKID123","shipping_tracking_no":"TruckNo USA CAL 012","pickupdate":"2020-11-20 00:00:00","pickuptime":"12:00","location_id":1,"picked_by":"ASR","status":"Picked","cancel":"0","created_at":"2020-11-20 11:16:40","updated_at":"2020-11-20 11:16:40","bctxnid":"4449d63c33450eebc846decab72065d07f3b8ffa2a9e52e711fc74b0afe0bc84","location":{"id":1,"name":"Dublin","active":"1","created_at":"2020-03-17 07:12:41","updated_at":"2020-03-17 07:12:41"},"pickupship_attachment":[{"id":45,"pickupship_id":41,"name":"13620201120111638651079.png","order":0,"active":"1","created_at":"2020-11-20 11:16:40","updated_at":"2020-11-20 11:16:40"}]}],"Invoice":[{"id":16,"order_id":136,"rfq_id":67,"quote_id":47,"pickupship_id":41,"invoice_id":"InvoiceId-SO03826","invoice_date":"2020-11-20 00:00:00","invoice_amount":123,"invoice_due_date":"2020-11-20 00:00:00","invoice_document":"5fb7a5a1dcaed1605871009.pdf","payment_currency":"USD","payment_amount":12,"payment_date":"2020-11-20 00:00:00","payment_method":"Check","payment_status":"Paid","cancel":"0","created_at":"2020-11-20 11:16:52","updated_at":"2020-11-20 11:16:52","bctxnid":"a6d90f0e904bfd43acc7446d5432ee2ee01a49a0a6b8075c2785dbf4cdfa98de","invoice_attachment":[{"id":16,"invoice_id":16,"name":"13620201120111649903566.png","order":0,"active":"1","created_at":"2020-11-20 11:16:52","updated_at":"2020-11-20 11:16:52"}]}],"CustomerFeedback":[{"id":30,"order_id":136,"noofpieces":2,"condition":"No Visible Damage","acceptance_status":"Accept","comments":"Hi i m customer and i have received package-via automation","deliverydate":"2020-11-20 04:46:41","deliverystatus":null,"deliveryreceipt":null,"transactionid":"166615868cb88f1c30901bfda6593df07bc4d4b1a85e74d86abb19b0d060c254","created_at":"2020-11-20 11:16:45","updated_at":"2020-11-20 11:16:45","bctxnid":"166615868cb88f1c30901bfda6593df07bc4d4b1a85e74d86abb19b0d060c254","customerfeedback_images":[{"id":32,"customer_feedback_id":30,"name":"13620201120111643438871.3BA","order":0,"created_at":"2020-11-20 11:16:45","updated_at":"2020-11-20 11:16:45"}]}],"Documents":[]}}"
+2020-11-27 14:47:07 DEBUG BasicClientConnectionManager:200 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@308a6984
+2020-11-27 14:47:07 DEBUG BasicClientConnectionManager:225 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:07 DEBUG DefaultClientConnection:180 - Connection 0.0.0.0:59389<->3.82.125.160:80 closed
+2020-11-27 14:47:08 DEBUG BasicClientConnectionManager:161 - Get connection for route {}->http://tnt7.copperwiresystems.com:80
+2020-11-27 14:47:08 DEBUG DefaultClientConnectionOperator:177 - Connecting to tnt7.copperwiresystems.com:80
+2020-11-27 14:47:08 DEBUG RequestAddCookies:123 - CookieSpec selected: ignoreCookies
+2020-11-27 14:47:08 DEBUG RequestAuthCache:77 - Auth cache not set in the context
+2020-11-27 14:47:08 DEBUG RequestProxyAuthentication:89 - Proxy auth state: UNCHALLENGED
+2020-11-27 14:47:08 DEBUG DefaultHttpClient:682 - Attempt 1 to execute request
+2020-11-27 14:47:08 DEBUG DefaultClientConnection:274 - Sending request: GET /api/orderproducts/136 HTTP/1.1
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "GET /api/orderproducts/136 HTTP/1.1[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Accept: */*[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Host: tnt7.copperwiresystems.com[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+2020-11-27 14:47:08 DEBUG wire:73 -  >> "[\r][\n]"
+2020-11-27 14:47:08 DEBUG headers:278 - >> GET /api/orderproducts/136 HTTP/1.1
+2020-11-27 14:47:08 DEBUG headers:281 - >> Content-Type: application/json; charset=UTF-8
+2020-11-27 14:47:08 DEBUG headers:281 - >> Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90bnQ3LmNvcHBlcndpcmVzeXN0ZW1zLmNvbVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYwNjQ2ODYyNSwiZXhwIjoxNjA2NDcyMjI1LCJuYmYiOjE2MDY0Njg2MjUsImp0aSI6IlhnZ3BBb01NQWdNekxNblUiLCJzdWIiOjEsInBydiI6ImVkMjA0OGVjZDFiNjc0MjZkMTNlMDUwOTgzMDZmMjM2NzZmNmEzYzMifQ.ezg41eN-vKEpJE0R8aU-7bvM4QVT20HtUF9EBitSdt8
+2020-11-27 14:47:08 DEBUG headers:281 - >> Accept: */*
+2020-11-27 14:47:08 DEBUG headers:281 - >> Host: tnt7.copperwiresystems.com
+2020-11-27 14:47:08 DEBUG headers:281 - >> Connection: Keep-Alive
+2020-11-27 14:47:08 DEBUG headers:281 - >> User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_65)
+2020-11-27 14:47:08 DEBUG headers:281 - >> Accept-Encoding: gzip,deflate
+2020-11-27 14:47:09 DEBUG wire:73 -  << "HTTP/1.1 200 OK[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Date: Fri, 27 Nov 2020 09:17:08 GMT[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Server: Apache/2.4.29 (Ubuntu)[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Vary: Authorization[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Cache-Control: no-cache, private[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "X-RateLimit-Limit: 60[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "X-RateLimit-Remaining: 58[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Content-Length: 1300[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Keep-Alive: timeout=5, max=100[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Connection: Keep-Alive[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "Content-Type: application/json[\r][\n]"
+2020-11-27 14:47:09 DEBUG wire:73 -  << "[\r][\n]"
+2020-11-27 14:47:09 DEBUG DefaultClientConnection:259 - Receiving response: HTTP/1.1 200 OK
+2020-11-27 14:47:09 DEBUG headers:262 - << HTTP/1.1 200 OK
+2020-11-27 14:47:09 DEBUG headers:265 - << Date: Fri, 27 Nov 2020 09:17:08 GMT
+2020-11-27 14:47:09 DEBUG headers:265 - << Server: Apache/2.4.29 (Ubuntu)
+2020-11-27 14:47:09 DEBUG headers:265 - << Vary: Authorization
+2020-11-27 14:47:09 DEBUG headers:265 - << Cache-Control: no-cache, private
+2020-11-27 14:47:09 DEBUG headers:265 - << X-RateLimit-Limit: 60
+2020-11-27 14:47:09 DEBUG headers:265 - << X-RateLimit-Remaining: 58
+2020-11-27 14:47:09 DEBUG headers:265 - << Content-Length: 1300
+2020-11-27 14:47:09 DEBUG headers:265 - << Keep-Alive: timeout=5, max=100
+2020-11-27 14:47:09 DEBUG headers:265 - << Connection: Keep-Alive
+2020-11-27 14:47:09 DEBUG headers:265 - << Content-Type: application/json
+2020-11-27 14:47:09 DEBUG DefaultHttpClient:509 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:09 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:545 - Parsing response as: application/json
+2020-11-27 14:47:09 DEBUG RequestSpecificationImpl$RestAssuredHttpBuilder:548 - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+2020-11-27 14:47:09 DEBUG wire:87 -  << "{"data":[{"id":206,"product_id":1,"order_id":136,"quantity":1,"price":"105.00","products":{"id":1,"sku":"TA12345","name":"Ivory Top Table","category_id":2,"template":"Table T","shipping_policy":"Ground","description":"White top","special_handling_instructions":"Fragile","dims":"4 X 5 X 6","weight":"23","color":"White","other_attributes":"Light","price":105,"active":"1","created_at":"2020-03-17 07:20:50","updated_at":"2020-07-20 23:20:10","categories":{"id":2,"name":"Table","active":"1","categories_url":"http:\/\/google.com","created_at":"2020-03-17 07:10:37","updated_at":"2020-03-17 07:10:37","_lft":2,"_rgt":3,"parent_id":1}},"cancel":"0"},{"id":207,"product_id":2,"order_id":136,"quantity":1,"price":"90.00","products":{"id":2,"sku":"CH45788","name":"Gray Chair","category_id":3,"template":"Wooden Chair","shipping_policy":"Ground","description":"Gray Wooden chair","special_handling_instructions":"Fold and pack","dims":"2 X 3 X 3","weight":"12","color":"Gray","other_attributes":"Light","price":90,"active":"1","created_at":"2020-03-17 07:22:06","updated_at":"2020-03-17 07:22:06","categories":{"id":3,"name":"Chair","active":"1","categories_url":"htttp:\/\/google.com","created_at":"2020-03-17 07:10:57","updated_at":"2020-03-17 07:10:57","_lft":4,"_rgt":5,"parent_id":1}},"cancel":"0"}]}"
+2020-11-27 14:47:09 DEBUG BasicClientConnectionManager:200 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@1686f0b4
+2020-11-27 14:47:09 DEBUG BasicClientConnectionManager:225 - Connection can be kept alive for 5000 MILLISECONDS
+2020-11-27 14:47:11 DEBUG DefaultClientConnection:180 - Connection 0.0.0.0:59391<->3.82.125.160:80 closed

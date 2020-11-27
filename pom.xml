@@ -9,8 +9,9 @@
 	<description>RestAssured project for automation of API</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
-
 	<developers>
 		<developer>
 			<name>abhishek.rathore</name>
@@ -20,7 +21,40 @@
 			<email>rathoreabhi1990@gmail.com</email>
 		</developer>
 	</developers>
-
+	<build>
+		<sourceDirectory>${basedir}/src/main</sourceDirectory>
+		<testSourceDirectory>${basedir}/src/test</testSourceDirectory>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+				<configuration>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value> <!-- disabling default listeners is optional -->
+						</property>
+						<property>
+							<name>listener</name>
+							<value>copperwire.io.listeners.TestAnnotationTransformerListener,copperwire.io.listeners.EmailExecutionListener</value>
+						</property>
+						<configuration>
+							<systemPropertyVariables>
+								<propertyName>upto_stage</propertyName>
+								<propertyName>order_id</propertyName>
+							</systemPropertyVariables>
+							<suiteXmlFiles>
+								<!-- <suiteFile>testng.xml</suiteFile> -->
+								<suiteXmlFile>${suiteFile}</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</properties>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 		<dependency>

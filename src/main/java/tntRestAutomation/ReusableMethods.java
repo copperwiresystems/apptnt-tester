@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -115,16 +113,6 @@ public class ReusableMethods {
 			}
 			allowedExecutionOrder.put(methodName, false);
 		}
-
-//		allowedExecutionOrder.put("fetchOrderById", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
-//		allowedExecutionOrder.put("", false);
 	}
 
 	public static boolean getStage(String annotationParam) {

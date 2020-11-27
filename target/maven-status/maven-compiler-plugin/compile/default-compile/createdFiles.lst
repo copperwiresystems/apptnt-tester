@@ -2,5 +2,5 @@ tntRestAutomation\ExtentReportListner.class
 tntRestAutomation\EmailReport.class
 tntRestAutomation\Resources.class
 tntRestAutomation\EmailReport$1.class
-tntRestAutomation\LogIn.class
 tntRestAutomation\ReusableMethods.class
+tntRestAutomation\TestPropertyReader.class

@@ -13,6 +13,7 @@ public class LogInTest {
 
 	@Test
 	public void doLogIn() {
+		System.out.println("Executing Test Class : <LogInTest>");
 
 		RestAssured.baseURI = Resources.BASE_URI;
 
