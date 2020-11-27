@@ -16,7 +16,8 @@ public class ReusableMethods {
 	private static final String EMAIL_FILE_PATH = "./src/main/resources/email.properties";
 	private static Map<String, Boolean> allowedExecutionOrder = new LinkedHashMap<String, Boolean>();
 	private static String executeUpto = null;
-
+	private static boolean executionFromMaven=false;
+	
 	public static String getSessionId() {
 		return sessionId;
 	}
@@ -119,16 +120,22 @@ public class ReusableMethods {
 		boolean status = false;
 		// No data continue test
 		if (null == executeUpto || 0 == executeUpto.length()) {
-			System.out.println("No data continue Test");
 			status = false;
 		}
 
 		// Match found stop test execution after this
 		else if (executeUpto.equalsIgnoreCase(annotationParam)) {
-			System.out.println("match found skip rest of tests");
 			status = true;
 		}
 		return status;
+	}
+
+	public static boolean isExecutionFromMaven() {
+		return executionFromMaven;
+	}
+
+	public static void setExecutionFromMaven(boolean executionFromMaven) {
+		ReusableMethods.executionFromMaven = executionFromMaven;
 	}
 
 }

@@ -1,9 +1,8 @@
 package tntRestAutomation;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.StringTokenizer;
-
 import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -15,8 +14,8 @@ public class EmailReport {
 
 	public static void sendReport() throws IOException {
 
-		final String username = ReusableMethods.getProperty("from");// "copperwiresystemstesting@gmail.com";
-		final String password = ReusableMethods.getProperty("password");// "copperwire";
+		final String username = ReusableMethods.getProperty("from");
+		final String password = ReusableMethods.getProperty("password");
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", true);
@@ -42,8 +41,8 @@ public class EmailReport {
 			Multipart multipart = new MimeMultipart();
 
 			messageBodyPart = new MimeBodyPart();
-			String file = "./test-output/emailable-report.html";
-			String fileName = "emailable-report.html";
+			String file = getReportPath();
+			String fileName = "test-report.html";
 			DataSource source = new FileDataSource(file);
 			messageBodyPart.setDataHandler(new DataHandler(source));
 			messageBodyPart.setFileName(fileName);
@@ -53,6 +52,27 @@ public class EmailReport {
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static String getReportPath() {
+		String mavenReportPath = "./target/site/surefire-report.html";
+		String testngReportPath = "./test-output/emailable-report.html";
+		try {
+			if (/*ReusableMethods.isExecutionFromMaven()*/true && !new File(mavenReportPath).exists()) {
+				System.out.println("Generating maven report");
+				runCommand("cmd /C mvn surefire-report:report-only");
+				Thread.sleep(3000);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ReusableMethods.isExecutionFromMaven() ? mavenReportPath : testngReportPath;
+	}
+
+	private static void runCommand(String cmd) throws Exception {
+		Process application = Runtime.getRuntime().exec(cmd);
+		application.waitFor();
 	}
 
 	public static void main(String[] a) throws IOException {

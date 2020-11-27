@@ -4,8 +4,8 @@
 	<listeners>
 		<listener
 			class-name="copperwire.io.listeners.TestAnnotationTransformerListener" />
-		<!-- <listener class-name="copperwire.io.listeners.EmailExecutionListener" 
-			/> -->
+		<listener class-name="copperwire.io.listeners.EmailExecutionListener" 
+			/>
 	</listeners>
 	<test name="SanityTest">
 		<!-- STAGES TILL THAT EXECUTION OF TEST IS REQUIRED -->

@@ -1,0 +1,13 @@
+copperwire\io\tnt\RunTestNG.class
+copperwire\io\tnt\orders\LogInTest.class
+copperwire\io\listeners\TestAnnotationTransformerListener.class
+copperwire\io\tnt\BaseTest.class
+copperwire\io\listeners\EmailExecutionListener.class
+copperwire\io\tnt\orders\CreateSalesOrderTest.class
+copperwire\io\tnt\CopperWire.class
+copperwire\io\tnt\orders\CreateSalesOrderAndVerifyOrdersTest.class
+copperwire\io\tnt\orders\GetOrderByIdTest.class
+copperwire\io\tnt\orders\GetAllOrdersTest.class
+copperwire\io\tnt\RunSuite.class
+copperwire\io\tnt\TesterInfo$Priority.class
+copperwire\io\tnt\TesterInfo.class

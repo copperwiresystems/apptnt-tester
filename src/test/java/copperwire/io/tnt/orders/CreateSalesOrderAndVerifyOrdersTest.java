@@ -425,6 +425,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		String upto = System.getProperty("upto_stage");
 		if (null != upto && 0 < upto.length()) {
 			ReusableMethods.initStage(upto);
+			ReusableMethods.setExecutionFromMaven(true);
 		}
 	}
 	

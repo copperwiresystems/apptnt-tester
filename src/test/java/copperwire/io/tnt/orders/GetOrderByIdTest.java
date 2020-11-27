@@ -198,6 +198,7 @@ public class GetOrderByIdTest extends BaseTest {
 		String upto = System.getProperty("upto_stage");
 		if (null != customerCode && 0 < customerCode.length()) {
 			GetOrderByIdTest.order_id = customerCode;
+			ReusableMethods.setExecutionFromMaven(true);
 		}
 		if (null != upto && 0 < upto.length()) {
 			ReusableMethods.initStage(upto);
