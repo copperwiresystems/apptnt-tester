@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import copperwire.io.tnt.BaseTest;
@@ -21,7 +20,6 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	@BeforeTest
 	public void beforeTest() {
-		System.out.println("Executing Test Class : <CreateSalesOrderAndVerifyOrdersTest>");
 		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 
@@ -32,13 +30,11 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response();
 		ReusableMethods.setSessionId(response.header("Authorization"));
 
+		resolveCustomInputs();
 	}
 
-	@Parameters({ "upto_stage" })
 	@Test(priority = 1)
-	public void createNewSalesOrder(String upto_stage) {
-		resolveCustomInputs(upto_stage);
-
+	public void createNewSalesOrder() {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 				.body(ReusableMethods.getNewSalesOrder(
@@ -416,17 +412,10 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	}
 	
 	////////////////// RESOLVE INPUTS //////////////////////////////////////////////
-	private void resolveCustomInputs(String upto_stage) {
-		System.out.println("Received Param from maven : " + System.getProperty("upto_stage") + " "
-				+ System.getProperty("order_id"));
-		
-		ReusableMethods.initStage(upto_stage);
-
-		String upto = System.getProperty("upto_stage");
-		if (null != upto && 0 < upto.length()) {
-			ReusableMethods.initStage(upto);
+	private void resolveCustomInputs() {
 			ReusableMethods.setExecutionFromMaven(true);
-		}
+			//Read from config file
+			ReusableMethods.initStageFromConfig();
 	}
 	
 }

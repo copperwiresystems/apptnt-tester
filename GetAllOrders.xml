@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="GetAllOrdersTest">
 <!--     <listeners>
-        <listener class-name="copperwire.io.listeners.EmailExecutionListener" />
+        <listener class-name="copperwire.io.listeners.ExecutionListener" />
     </listeners> -->
   <test name="Test">
     <classes>

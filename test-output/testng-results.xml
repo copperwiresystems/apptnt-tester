@@ -1,17 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="13" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5306" started-at="2020-11-27T15:27:30 IST" finished-at="2020-11-27T15:27:35 IST">
+  <suite name="SanityTestSuite" duration-ms="32422" started-at="2020-12-01T22:06:58 IST" finished-at="2020-12-01T22:07:30 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5306" started-at="2020-11-27T15:27:30 IST" finished-at="2020-11-27T15:27:35 IST">
-      <class name="copperwire.io.tnt.orders.LogInTest">
-        <test-method status="PASS" signature="doLogIn()[pri:0, instance:copperwire.io.tnt.orders.LogInTest@76707e36]" name="doLogIn" duration-ms="5226" started-at="2020-11-27T15:27:30 IST" finished-at="2020-11-27T15:27:35 IST">
+    <test name="SanityTest" duration-ms="32422" started-at="2020-12-01T22:06:58 IST" finished-at="2020-12-01T22:07:30 IST">
+      <class name="copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="beforeTest" is-config="true" duration-ms="3071" started-at="2020-12-01T22:06:58 IST" finished-at="2020-12-01T22:07:01 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- doLogIn -->
-      </class> <!-- copperwire.io.tnt.orders.LogInTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="createNewSalesOrder()[pri:1, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="createNewSalesOrder" duration-ms="1293" started-at="2020-12-01T22:07:01 IST" finished-at="2020-12-01T22:07:03 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewSalesOrder -->
+        <test-method status="PASS" signature="createPallets()[pri:2, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="createPallets" duration-ms="2196" started-at="2020-12-01T22:07:03 IST" finished-at="2020-12-01T22:07:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createPallets -->
+        <test-method status="PASS" signature="createRfq()[pri:3, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="createRfq" duration-ms="3054" started-at="2020-12-01T22:07:05 IST" finished-at="2020-12-01T22:07:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createRfq -->
+        <test-method status="PASS" signature="getOrderDetails()[pri:4, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="getOrderDetails" duration-ms="720" started-at="2020-12-01T22:07:08 IST" finished-at="2020-12-01T22:07:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOrderDetails -->
+        <test-method status="PASS" signature="getRfqDetails()[pri:5, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="getRfqDetails" duration-ms="1641" started-at="2020-12-01T22:07:09 IST" finished-at="2020-12-01T22:07:10 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRfqDetails -->
+        <test-method status="PASS" signature="bookRfq()[pri:6, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="bookRfq" duration-ms="2798" started-at="2020-12-01T22:07:10 IST" finished-at="2020-12-01T22:07:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- bookRfq -->
+        <test-method status="PASS" signature="getOrderDetailsForQuotation()[pri:7, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="getOrderDetailsForQuotation" duration-ms="638" started-at="2020-12-01T22:07:13 IST" finished-at="2020-12-01T22:07:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOrderDetailsForQuotation -->
+        <test-method status="PASS" signature="pickUpAndShip()[pri:8, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="pickUpAndShip" duration-ms="3998" started-at="2020-12-01T22:07:14 IST" finished-at="2020-12-01T22:07:18 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- pickUpAndShip -->
+        <test-method status="PASS" signature="doCustomerFeedback()[pri:9, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="doCustomerFeedback" duration-ms="6431" started-at="2020-12-01T22:07:18 IST" finished-at="2020-12-01T22:07:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- doCustomerFeedback -->
+        <test-method status="PASS" signature="getOrderDetailsForPickupShipDetails()[pri:10, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="getOrderDetailsForPickupShipDetails" duration-ms="869" started-at="2020-12-01T22:07:24 IST" finished-at="2020-12-01T22:07:25 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getOrderDetailsForPickupShipDetails -->
+        <test-method status="PASS" signature="invoce()[pri:11, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="invoce" duration-ms="3931" started-at="2020-12-01T22:07:25 IST" finished-at="2020-12-01T22:07:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invoce -->
+        <test-method status="PASS" signature="fetchOrderById()[pri:12, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="fetchOrderById" duration-ms="580" started-at="2020-12-01T22:07:29 IST" description="GET_ORDER" finished-at="2020-12-01T22:07:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fetchOrderById -->
+        <test-method status="PASS" signature="fetchProductDetailsById()[pri:13, instance:copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest@131276c2]" name="fetchProductDetailsById" duration-ms="562" started-at="2020-12-01T22:07:30 IST" finished-at="2020-12-01T22:07:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fetchProductDetailsById -->
+      </class> <!-- copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest -->
+    </test> <!-- SanityTest -->
+  </suite> <!-- SanityTestSuite -->
 </testng-results>

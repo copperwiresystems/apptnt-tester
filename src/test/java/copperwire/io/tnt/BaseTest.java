@@ -1,12 +1,10 @@
 package copperwire.io.tnt;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import org.testng.annotations.Listeners;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
+import copperwire.io.listeners.ExecutionListener;
 
+@Listeners({ExecutionListener.class})
 public class BaseTest {
 	private static String order_id;
 	private static String order_no;
@@ -28,16 +26,6 @@ public class BaseTest {
 	private static String deliverydate;	
 	private static String carrier_id;
 	
-	public static Logger log = null;
-
-	public BaseTest() {
-		String x = this.getClass().getSimpleName();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
-		String path = dateFormat.format(new Date()) +"\\"+ x + ".log";
-		System.setProperty("logfile.name", path);
-		log = LogManager.getLogger(x);
-	}
-
 	public static String getOrder_id() {
 		return order_id;
 	}

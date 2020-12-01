@@ -2,8 +2,6 @@ package copperwire.io.tnt.orders;
 
 import static io.restassured.RestAssured.given;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.TestNG;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,7 +13,7 @@ import tntRestAutomation.Resources;
 import tntRestAutomation.ReusableMethods;
 
 public class GetAllOrdersTest {
-	public static Logger log = LogManager.getLogger(GetAllOrdersTest.class.getName());
+//	public static Logger log = LogManager.getLogger(GetAllOrdersTest.class.getName());
 
 	@BeforeTest
 	public void beforeTest() {

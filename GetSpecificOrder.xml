@@ -5,20 +5,9 @@
 		<listener
 			class-name="copperwire.io.listeners.TestAnnotationTransformerListener" />
 		<listener
-			class-name="copperwire.io.listeners.EmailExecutionListener" />
+			class-name="copperwire.io.listeners.ExecutionListener" />
 	</listeners>
 	<test name="SanityTest-FetchOrderDetailsById" preserve-order="true" >
-		<!-- STAGES TILL THAT EXECUTION OF TEST IS REQUIRED -->
-		<!-- ALL -->
-		<!-- GET_ORDER -->
-		<!-- INSPECT_AND_PACK -->
-		<!-- RFQ-->
-		<!-- BOOK -->
-		<!-- PICKUP_AND_SHIP -->
-		<!-- INVOICE -->
-		<!-- FEEDBACK -->
-		<parameter name="order_id" value="136" />
-		<parameter name="upto_stage" value="GET_ORDER" />
 		<classes>
 			<class name="copperwire.io.tnt.orders.GetOrderByIdTest" />
 		</classes>

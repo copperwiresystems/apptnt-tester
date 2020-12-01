@@ -1,7 +1,5 @@
 package tntRestAutomation;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,12 +10,11 @@ import java.util.Properties;
 public class ReusableMethods {
 
 	private static String sessionId;
-	private static Properties property = null;
-	private static final String EMAIL_FILE_PATH = "./src/main/resources/email.properties";
 	private static Map<String, Boolean> allowedExecutionOrder = new LinkedHashMap<String, Boolean>();
 	private static String executeUpto = null;
-	private static boolean executionFromMaven=false;
-	
+	private static boolean executionFromMaven;
+	private static String orderId = null;
+
 	public static String getSessionId() {
 		return sessionId;
 	}
@@ -27,8 +24,8 @@ public class ReusableMethods {
 	}
 
 	public static String getLogInCredentials() {
-		String email = TestPropertyReader.getProperty("email");
-		String password = TestPropertyReader.getProperty("password");
+		String email = TestPropertyReader.getProperty("login.email.id");
+		String password = TestPropertyReader.getProperty("login.email.password");
 		return "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"remember\":false}";
 	}
 
@@ -86,21 +83,12 @@ public class ReusableMethods {
 		return dateWithSeconds;
 	}
 
-	public static String getProperty(String name) throws IOException {
-		if (null == property) {
-			FileInputStream fis = new FileInputStream(EMAIL_FILE_PATH);
-			property = new Properties();
-			property.load(fis);
-		}
-		return property.getProperty(name);
-	}
-
-	public static void main(String[] ar) {
-		System.out.println(getBookPayload("120", "51", "56", "1", "123", "2020-11-20"));
-	}
-
 	public static void initStage(String upto) {
 		executeUpto = upto;
+	}
+
+	public static void initStageFromConfig() {
+		executeUpto = TestPropertyReader.getProperty("upto_stage");
 	}
 
 	public static <T> void addMethod(Class<T> callingClass) {
@@ -109,7 +97,6 @@ public class ReusableMethods {
 		for (Method method : methods) {
 			String methodName = method.getName();
 			if (methodName.toLowerCase().startsWith("beforeclass") || methodName.toLowerCase().startsWith("init")) {
-				System.out.println("Class Object Contains" + " Method whose name is " + methodName);
 				continue;
 			}
 			allowedExecutionOrder.put(methodName, false);
@@ -138,4 +125,28 @@ public class ReusableMethods {
 		ReusableMethods.executionFromMaven = executionFromMaven;
 	}
 
+	public static String getOrderId() {
+		return orderId;
+	}
+
+	public static void setOrderId(String orderId) {
+		ReusableMethods.orderId = orderId;
+	}
+
+	public static void initOrderIdFromConfig() {
+		orderId = TestPropertyReader.getProperty("order_id");
+	}
+
+	public static String getBaseUri() {
+		return TestPropertyReader.getProperty("baseURI");
+	}
+
+	public static void main(String []ar) {
+		initStageFromConfig();
+		initOrderIdFromConfig();
+		System.out.println(executeUpto);
+		System.out.println(orderId);
+		
+	}
+	
 }

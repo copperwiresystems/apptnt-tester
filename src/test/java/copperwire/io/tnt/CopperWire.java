@@ -14,8 +14,6 @@ public class CopperWire extends BaseTest {
 
 	@BeforeTest
 	public void beforeTest() {
-		log.info("Before Test initiated");
-		log.debug("Before Test initiated");
 		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 }

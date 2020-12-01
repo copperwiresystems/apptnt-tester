@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class TestPropertyReader {
-	private static final String TEST_CONFIG_FILE_PATH = "./src/test/resources/login.properties";
+	private static final String TEST_CONFIG_FILE_PATH = "./src/test/resources/TestConfiguration.properties";
 	private static Properties property = null;
 
 	public static String getProperty(String name) {

@@ -3,9 +3,8 @@ package copperwire.io.tnt.orders;
 import static io.restassured.RestAssured.given;
 
 import java.util.HashMap;
+
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import copperwire.io.tnt.BaseTest;
@@ -39,6 +38,7 @@ public class GetOrderByIdTest extends BaseTest {
 
 				.then().log().all().assertThat().statusCode(200).extract().response();// response().seasString();
 		ReusableMethods.setSessionId(response.header("Authorization"));
+		resolveCustomInputs();
 	}
 
 	// This is dependent API of fetchOrderById
@@ -53,18 +53,9 @@ public class GetOrderByIdTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 	}
 
-	@Parameters({ "order_id", "upto_stage" })
+	/* @Parameters({ "order_id", "upto_stage" }) */
 	@Test
-	public void fetchOrderById(String order_id, String upto_stage) {
-//		System.out.println("Received Param : " + upto_stage + " " + order_id);
-//		ReusableMethods.initStage(upto_stage);
-//		GetOrderByIdTest.order_id = order_id;
-//		
-//		String customerCode= System.getProperty("order_id"); 
-//		System.out.println("Received Param from maven : " + System.getProperty("upto_stage")  + " " + System.getProperty("order_id"));
-
-		resolveCustomInputs(order_id, upto_stage);
-
+	public void fetchOrderById(/* String order_id, String upto_stage */) {
 		String res = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 
@@ -119,7 +110,7 @@ public class GetOrderByIdTest extends BaseTest {
 	@Test(priority = 4, description = "BOOK")
 	public void verifyBook() {
 
-		//NOTE: QueryParam is diff from verifyRfq
+		// NOTE: QueryParam is diff from verifyRfq
 		HashMap<String, String> queryParam = new HashMap<String, String>();
 		queryParam.put("orderno", order_no);
 		queryParam.put("order_id", order_id);
@@ -186,22 +177,13 @@ public class GetOrderByIdTest extends BaseTest {
 	}
 
 	////////////////// RESOLVE INPUTS //////////////////////////////////////////////
-	private void resolveCustomInputs(String order_id2, String upto_stage) {
-		System.out.println("Received Param form testng.xml : " + upto_stage + " " + order_id2);
-		System.out.println("Received Param from maven : " + System.getProperty("upto_stage") + " "
-				+ System.getProperty("order_id"));
-		
-		ReusableMethods.initStage(upto_stage);
-		GetOrderByIdTest.order_id = order_id2;
+	private void resolveCustomInputs() {
+		ReusableMethods.setExecutionFromMaven(true);
+		// Read from config file
+		ReusableMethods.initStageFromConfig();
+		ReusableMethods.initOrderIdFromConfig();
+		System.out.println("Order id : " + ReusableMethods.getOrderId());
+		order_id = ReusableMethods.getOrderId();
 
-		String customerCode = System.getProperty("order_id");
-		String upto = System.getProperty("upto_stage");
-		if (null != customerCode && 0 < customerCode.length()) {
-			GetOrderByIdTest.order_id = customerCode;
-			ReusableMethods.setExecutionFromMaven(true);
-		}
-		if (null != upto && 0 < upto.length()) {
-			ReusableMethods.initStage(upto);
-		}
 	}
 }

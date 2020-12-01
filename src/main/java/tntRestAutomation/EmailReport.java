@@ -14,8 +14,8 @@ public class EmailReport {
 
 	public static void sendReport() throws IOException {
 
-		final String username = ReusableMethods.getProperty("from");
-		final String password = ReusableMethods.getProperty("password");
+		final String username = TestPropertyReader.getProperty("from");
+		final String password = TestPropertyReader.getProperty("password");
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", true);
@@ -30,9 +30,10 @@ public class EmailReport {
 		});
 
 		try {
+			
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
-			String to = ReusableMethods.getProperty("to");
+			String to = TestPropertyReader.getProperty("to");
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			message.setSubject("TNT REST-API AUTOMATION REPORT AT-" + ReusableMethods.getDateWithHrMinuteSecond());
 			message.setText("PFA");
