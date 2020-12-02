@@ -22,7 +22,7 @@ File 'TestConfiguration.properties' is responsible for all configuration related
 File Path : \src\test\resources\TestConfiguration.properties
 
 1. Create new 'Sales Order' and verify it till specific stage. Run below command.
-##### mvn clean test -Dsurefire.suiteXmlFiles=SanityTestSuite.xml ##### 
+##### mvn clean test -Dsurefire.suiteXmlFiles=sanityTestSuite.xml ##### 
 
 
 2. Verify all 6 steps for a specific order step by step. Run below command: 
