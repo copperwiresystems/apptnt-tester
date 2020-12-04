@@ -27,7 +27,7 @@ public class FullFillMenuValidation {
 	@BeforeTest
 	public void beforeTest() {
 		System.out.println("Executing Test Class : <VerifyFullFillMenu>");
-		RestAssured.baseURI = "http://t8.cw3.biz";// Resources.BASE_URI;
+		RestAssured.baseURI = Resources.BASE_URI;
 		RestAssured.useRelaxedHTTPSValidation();
 
 		// Do Login
