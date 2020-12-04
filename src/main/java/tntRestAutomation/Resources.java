@@ -37,6 +37,8 @@ public class Resources {
 	public static final String CUSTOMER_FEEBACK = "/api/feedback";
 
 	public static final String INVOICE = "/api/invoices";
+	
+	public static final String DELIVER_ACCEPT="/api/customerfeedback";
 
 	
 	//Static property init

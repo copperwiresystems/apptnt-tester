@@ -18,8 +18,9 @@ File 'TestConfiguration.properties' is responsible for all configuration related
 1. Login credentials
 2. Email Configuration
 3. Test data
-
 File Path : \src\test\resources\TestConfiguration.properties
+
+### Run below test as per requirement ###
 
 1. Create new 'Sales Order' and verify it till specific stage. Run below command.
 ##### mvn clean test -Dsurefire.suiteXmlFiles=sanityTestSuite.xml ##### 
@@ -29,6 +30,8 @@ File Path : \src\test\resources\TestConfiguration.properties
 ##### mvn clean test -Dsurefire.suiteXmlFiles=GetSpecificOrder.xml ##### 
 
 
+3. Validate all sub-menu items under 'FullFill' main menu item on main page
+##### mvn clean test -Dsurefire.suiteXmlFiles=FullFillMenuValidation.xml ##### 
 <!-- CONTACT -->
 ## Contact
 

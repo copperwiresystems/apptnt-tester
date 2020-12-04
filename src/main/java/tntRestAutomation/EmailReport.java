@@ -59,10 +59,10 @@ public class EmailReport {
 		String mavenReportPath = "./target/site/surefire-report.html";
 		String testngReportPath = "./test-output/emailable-report.html";
 		try {
-			if (/*ReusableMethods.isExecutionFromMaven()*/true && !new File(mavenReportPath).exists()) {
+			if (ReusableMethods.isExecutionFromMaven() && !new File(mavenReportPath).exists()) {
 				System.out.println("Generating maven report");
-				runCommand("cmd /C mvn surefire-report:report-only");
-				Thread.sleep(3000);
+				//runCommand("cmd /C mvn surefire-report:report-only");
+				//Thread.sleep(3000);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

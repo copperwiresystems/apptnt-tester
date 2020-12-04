@@ -3,11 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="copperwire.io.tnt.orders.LogInTest">
+      <class name="copperwire.io.tnt.menu.VerifyFullFillMenu">
         <methods>
-          <include name="doLogIn"/>
+          <include name="verifyRfq"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- copperwire.io.tnt.orders.LogInTest -->
+      </class> <!-- copperwire.io.tnt.menu.VerifyFullFillMenu -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

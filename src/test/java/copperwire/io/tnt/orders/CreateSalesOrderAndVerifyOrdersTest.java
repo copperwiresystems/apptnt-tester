@@ -38,7 +38,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 				.body(ReusableMethods.getNewSalesOrder(
-						"Abhishek-via Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
+						"AR-via Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
 						ReusableMethods.getDateOnly()))
 				.when().post(Resources.CREATE_SALES_ORDER).then().log().all().assertThat().statusCode(201).extract()
 				.response().asString();
