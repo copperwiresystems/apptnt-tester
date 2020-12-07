@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import copperwire.io.tnt.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import tntRestAutomation.Resources;
@@ -22,7 +23,7 @@ import tntRestAutomation.ReusableMethods;
  *
  */
 
-public class FullFillMenuValidation {
+public class FullFillMenuValidation extends BaseTest {
 
 	@BeforeTest
 	public void beforeTest() {

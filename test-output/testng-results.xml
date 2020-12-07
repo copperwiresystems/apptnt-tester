@@ -2,36 +2,36 @@
 <testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="UnitTest" duration-ms="8888" started-at="2020-12-04T14:58:53 IST" finished-at="2020-12-04T14:59:02 IST">
+  <suite name="Default suite" duration-ms="7265" started-at="2020-12-05T15:39:50 IST" finished-at="2020-12-05T15:39:57 IST">
     <groups>
     </groups>
-    <test name="SanityTest-FetchOrderDetailsById" duration-ms="8888" started-at="2020-12-04T14:58:53 IST" finished-at="2020-12-04T14:59:02 IST">
+    <test name="Default test" duration-ms="7265" started-at="2020-12-05T15:39:50 IST" finished-at="2020-12-05T15:39:57 IST">
       <class name="copperwire.io.tnt.menu.FullFillMenuValidation">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="beforeTest" is-config="true" duration-ms="4344" started-at="2020-12-04T14:58:54 IST" finished-at="2020-12-04T14:58:59 IST">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="beforeTest" is-config="true" duration-ms="3478" started-at="2020-12-05T15:39:51 IST" finished-at="2020-12-05T15:39:54 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="inspectA_Pack()[pri:1, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="inspectA_Pack" duration-ms="690" started-at="2020-12-04T14:58:59 IST" description="INSPECT_AND_PACK" finished-at="2020-12-04T14:58:59 IST">
+        <test-method status="PASS" signature="inspect_Pack()[pri:1, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="inspect_Pack" duration-ms="608" started-at="2020-12-05T15:39:54 IST" description="INSPECT_AND_PACK" finished-at="2020-12-05T15:39:55 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- inspectA_Pack -->
-        <test-method status="PASS" signature="verifyRfq_Book()[pri:2, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="verifyRfq_Book" duration-ms="550" started-at="2020-12-04T14:58:59 IST" description="RFQ" finished-at="2020-12-04T14:59:00 IST">
+        </test-method> <!-- inspect_Pack -->
+        <test-method status="PASS" signature="verifyRfq_Book()[pri:2, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="verifyRfq_Book" duration-ms="566" started-at="2020-12-05T15:39:55 IST" description="RFQ" finished-at="2020-12-05T15:39:55 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyRfq_Book -->
-        <test-method status="PASS" signature="verifyPickup_Ship()[pri:3, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="verifyPickup_Ship" duration-ms="609" started-at="2020-12-04T14:59:00 IST" description="PICKUP_AND_SHIP" finished-at="2020-12-04T14:59:01 IST">
+        <test-method status="PASS" signature="verifyPickup_Ship()[pri:3, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="verifyPickup_Ship" duration-ms="527" started-at="2020-12-05T15:39:55 IST" description="PICKUP_AND_SHIP" finished-at="2020-12-05T15:39:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPickup_Ship -->
-        <test-method status="PASS" signature="verifyInvoices()[pri:4, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="verifyInvoices" duration-ms="509" started-at="2020-12-04T14:59:01 IST" description="INVOICE" finished-at="2020-12-04T14:59:01 IST">
+        <test-method status="PASS" signature="verifyInvoices()[pri:4, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="verifyInvoices" duration-ms="587" started-at="2020-12-05T15:39:56 IST" description="INVOICE" finished-at="2020-12-05T15:39:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyInvoices -->
-        <test-method status="PASS" signature="verifyDeliver_Accept()[pri:5, instance:copperwire.io.tnt.menu.FullFillMenuValidation@6737fd8f]" name="verifyDeliver_Accept" duration-ms="859" started-at="2020-12-04T14:59:01 IST" description="DELIVER_ACCEPT" finished-at="2020-12-04T14:59:02 IST">
+        <test-method status="PASS" signature="verifyDeliver_Accept()[pri:5, instance:copperwire.io.tnt.menu.FullFillMenuValidation@49fc609f]" name="verifyDeliver_Accept" duration-ms="878" started-at="2020-12-05T15:39:56 IST" description="DELIVER_ACCEPT" finished-at="2020-12-05T15:39:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyDeliver_Accept -->
       </class> <!-- copperwire.io.tnt.menu.FullFillMenuValidation -->
-    </test> <!-- SanityTest-FetchOrderDetailsById -->
-  </suite> <!-- UnitTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
