@@ -5,6 +5,7 @@ import org.testng.annotations.Listeners;
 import copperwire.io.listeners.ExecutionListener;
 
 @Listeners({ExecutionListener.class})
+
 public class BaseTest {
 	private static String order_id;
 	private static String order_no;
@@ -25,7 +26,15 @@ public class BaseTest {
 	private static String quoted_date;
 	private static String deliverydate;	
 	private static String carrier_id;
-	
+	private static String transaction_id;
+	public static String getTransaction_id() {
+		return transaction_id;
+	}
+
+	public static void setTransaction_id(String transaction_id) {
+		BaseTest.transaction_id = transaction_id;
+	}
+
 	public static String getOrder_id() {
 		return order_id;
 	}

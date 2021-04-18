@@ -13,6 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import tntRestAutomation.Resources;
 import tntRestAutomation.ReusableMethods;
+import tntRestAutomation.TestPropertyReader;
 
 public class CreateSalesOrderTest extends BaseTest {
 
@@ -36,7 +37,7 @@ public class CreateSalesOrderTest extends BaseTest {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 				.body(ReusableMethods.getNewSalesOrder(
-						"Abhishek-via Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
+						"Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
 						ReusableMethods.getDateOnly()))
 				.when().post(Resources.CREATE_SALES_ORDER).then().log().all().assertThat().statusCode(201).extract()
 				.response().asString();

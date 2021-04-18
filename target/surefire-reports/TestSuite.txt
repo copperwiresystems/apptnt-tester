@@ -1,4 +1,226 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.822 s - in TestSuite
+Tests run: 42, Failures: 36, Errors: 0, Skipped: 1, Time elapsed: 130.862 s <<< FAILURE! - in TestSuite
+createNewSalesOrder(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.796 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <403>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.createNewSalesOrder(CreateSalesOrderAndVerifyOrdersTest.java:52)
+
+createPallets(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.051 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.createPallets(CreateSalesOrderAndVerifyOrdersTest.java:95)
+
+savepalletinBlockchain(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 4.304 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.savepalletinBlockchain(CreateSalesOrderAndVerifyOrdersTest.java:107)
+
+createRfq(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.createRfq(CreateSalesOrderAndVerifyOrdersTest.java:154)
+
+getOrderDetails(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.708 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.getOrderDetails(CreateSalesOrderAndVerifyOrdersTest.java:163)
+
+getRfqDetails(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.717 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.getRfqDetails(CreateSalesOrderAndVerifyOrdersTest.java:178)
+
+bookRfq(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.699 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <403>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.bookRfq(CreateSalesOrderAndVerifyOrdersTest.java:206)
+
+getOrderDetailsForQuotation(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.455 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.getOrderDetailsForQuotation(CreateSalesOrderAndVerifyOrdersTest.java:219)
+
+pickUpAndShip(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.pickUpAndShip(CreateSalesOrderAndVerifyOrdersTest.java:246)
+
+doCustomerFeedback(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.doCustomerFeedback(CreateSalesOrderAndVerifyOrdersTest.java:270)
+
+getOrderDetailsForPickupShipDetails(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.625 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.getOrderDetailsForPickupShipDetails(CreateSalesOrderAndVerifyOrdersTest.java:280)
+
+invoce(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 0.026 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.invoce(CreateSalesOrderAndVerifyOrdersTest.java:313)
+
+fetchOrderById(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.814 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.fetchOrderById(CreateSalesOrderAndVerifyOrdersTest.java:328)
+
+inspect_Pack_Validate(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 33.87 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.inspect_Pack_Validate(CreateSalesOrderAndVerifyOrdersTest.java:373)
+
+verifyRfq(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.679 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.verifyRfq(CreateSalesOrderAndVerifyOrdersTest.java:394)
+
+verifyBook(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 4.368 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.verifyBook(CreateSalesOrderAndVerifyOrdersTest.java:414)
+
+verifyPickupAndShip(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 5.155 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.verifyPickupAndShip(CreateSalesOrderAndVerifyOrdersTest.java:431)
+
+verifyInvoice(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 3.819 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.verifyInvoice(CreateSalesOrderAndVerifyOrdersTest.java:448)
+
+verifyCustomerAcceptance(copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest)  Time elapsed: 4.395 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest.verifyCustomerAcceptance(CreateSalesOrderAndVerifyOrdersTest.java:465)
+
+createNewSalesOrder(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.902 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <403>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.createNewSalesOrder(CreateSalesOrderTest.java:42)
+
+createPallets(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.createPallets(CreateSalesOrderTest.java:82)
+
+createRfq(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.createRfq(CreateSalesOrderTest.java:124)
+
+getOrderDetails(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 5.008 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.getOrderDetails(CreateSalesOrderTest.java:133)
+
+getRfqDetails(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.921 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.getRfqDetails(CreateSalesOrderTest.java:148)
+
+bookRfq(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.803 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <201> but was <403>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.bookRfq(CreateSalesOrderTest.java:176)
+
+getOrderDetailsForQuotation(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 4.435 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.getOrderDetailsForQuotation(CreateSalesOrderTest.java:189)
+
+pickUpAndShip(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.pickUpAndShip(CreateSalesOrderTest.java:216)
+
+doCustomerFeedback(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.007 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.doCustomerFeedback(CreateSalesOrderTest.java:240)
+
+getOrderDetailsForPickupShipDetails(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 4.179 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.getOrderDetailsForPickupShipDetails(CreateSalesOrderTest.java:250)
+
+invoce(copperwire.io.tnt.orders.CreateSalesOrderTest)  Time elapsed: 0.006 s  <<< FAILURE!
+java.lang.NullPointerException
+	at copperwire.io.tnt.orders.CreateSalesOrderTest.invoce(CreateSalesOrderTest.java:283)
+
+fetchOrderById(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 4.29 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.fetchOrderById(GetOrderByIdTest.java:64)
+
+verifyRfq(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 3.296 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.verifyRfq(GetOrderByIdTest.java:106)
+
+verifyBook(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 4.299 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.verifyBook(GetOrderByIdTest.java:124)
+
+verifyPickupAndShip(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 3.786 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.verifyPickupAndShip(GetOrderByIdTest.java:141)
+
+verifyCustomerAcceptance(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 4.758 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.verifyCustomerAcceptance(GetOrderByIdTest.java:158)
+
+verifyInvoice(copperwire.io.tnt.orders.GetOrderByIdTest)  Time elapsed: 4.94 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <200> but was <500>.
+
+	at copperwire.io.tnt.orders.GetOrderByIdTest.verifyInvoice(GetOrderByIdTest.java:175)
+

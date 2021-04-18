@@ -45,19 +45,20 @@ public class FullFillMenuValidation extends BaseTest {
 	public void inspect_Pack() {
 
 		HashMap<String, String> queryParam = new LinkedHashMap<String, String>();
-		queryParam.put("page", "1");
-		queryParam.put("limit", "15");
+		queryParam.put("page", "2");
+		queryParam.put("limit", "5");
 		queryParam.put("sort", "id");
 		queryParam.put("active", "Sale");
 		queryParam.put("keyword", "");
 
-		given().log().all()
+		String responseString=given().log().all()
 
 				.header("Content-Type", "application/json").header("Authorization", ReusableMethods.getSessionId())
 				.queryParams(queryParam)
 
 				.when().get(Resources.CREATE_PALLETS_FOR_NEW_ORDER).then().log().all().assertThat().statusCode(200)
 				.extract().response().asString();
+		System.out.println(responseString); 
 
 	}
 
@@ -127,13 +128,13 @@ public class FullFillMenuValidation extends BaseTest {
 		queryParam.put("sort", "+id");
 		queryParam.put("keyword", "");
 
-		given().log().all().header("Content-Type", "application/json")
+		 given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId()).queryParams(queryParam)
 
 				.when().get(Resources.DELIVER_ACCEPT)
 
 				.then().log().all().assertThat().statusCode(200);
-
+		
 	}
 
 	////////////////// RESOLVE INPUTS //////////////////////////////////////////////
