@@ -9,5 +9,6 @@ copperwire\io\tnt\RunTestNG.class
 copperwire\io\tnt\orders\LogInTest.class
 copperwire\io\listeners\TestAnnotationTransformerListener.class
 copperwire\io\tnt\BaseTest.class
+copperwire\io\tnt\orders\CreatePurchaseOrderAndVerifyOrdersTnt8.class
 copperwire\io\tnt\RunSuite.class
 copperwire\io\tnt\orders\CreateSalesOrderTest.class

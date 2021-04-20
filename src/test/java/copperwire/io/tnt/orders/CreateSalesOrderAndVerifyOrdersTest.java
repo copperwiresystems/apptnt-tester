@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,12 +16,19 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import tntRestAutomation.Resources;
 import tntRestAutomation.ReusableMethods;
+import tntRestAutomation.TestPropertyReader;
 
 public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
+	@BeforeSuite
+	
+	  public void setUp() {
+	    RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
+	  }
 	@BeforeTest
 	public void beforeTest() {
 		RestAssured.baseURI = Resources.BASE_URI;
+		
 		RestAssured.useRelaxedHTTPSValidation();
 
 		// Do Login
@@ -28,17 +36,18 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.body(ReusableMethods.getLogInCredentials()).when().log().all().post("/api/auth/login")
 
 				.then().log().all().assertThat().statusCode(200).extract().response();
+		
 		ReusableMethods.setSessionId(response.header("Authorization"));
 
 		resolveCustomInputs();
 	}
-
+	
 	@Test(priority = 1)
 	public void createNewSalesOrder() {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
 				.body(ReusableMethods.getNewSalesOrder(
-						"AR-via Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
+						"Automation " + ReusableMethods.getDateWithHrMinuteSecond(),
 						ReusableMethods.getDateOnly()))
 				.when().post(Resources.CREATE_SALES_ORDER).then().log().all().assertThat().statusCode(201).extract()
 				.response().asString();
@@ -47,6 +56,9 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		String order_id = Integer.toString((Integer) var.get("data.id"));
 		setOrder_no(order_no);
 		setOrder_id(order_id);
+		System.out.println(order_no);
+		System.out.println(order_id);
+		
 
 	}
 
@@ -86,6 +98,23 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	}
 
 	@Test(priority = 3)
+	public void savepalletinBlockchain() {
+		HashMap<String, String> requestbody = new HashMap<String, String>();
+		requestbody.put("order_id",getOrder_id());
+		requestbody.put("order_no",getOrder_no());
+		
+		String response =given().log().all().header("Content-Type", "application/json").header("Authorization", ReusableMethods.getSessionId()).body(requestbody)
+		.when().post(Resources.SAVE_PALLET_IN_BCSERVER).then().log().all().assertThat().statusCode(200).extract().response().asString();
+		
+		JsonPath var = new JsonPath(response);
+		
+		String transaction_id=var.get("data.transactionid[0]");
+		setTransaction_id(transaction_id);
+	}
+	
+	
+	
+	@Test(priority = 4)
 	public void createRfq() {
 		String rfq_date = ReusableMethods.getDateOnly();
 		String rfq_closing_date = ReusableMethods.getDateOnly();
@@ -127,7 +156,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		 		// @formatter:on
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 5)
 	public void getOrderDetails() {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId()).when()
@@ -139,7 +168,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		setRfq_id(rfq_id);
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void getRfqDetails() {
 		// Stage 2 : Fetch RFQ and carrier details
 		// @formatter:off
@@ -164,7 +193,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		// createRfq()
 	}
 
-	@Test(priority = 6, enabled = true)
+	@Test(priority = 7, enabled = true)
 	public void bookRfq() {
 		String bookPayload = ReusableMethods.getBookPayload(getOrder_id(), getRfq_id(), getRfq_carrier_id(),
 				getCarrier_id(), getRfq_carrier_quote_id(), getQuoted_date());
@@ -183,7 +212,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		Assert.assertEquals(bookStatus, "Booked");
 	}
 
-	@Test(priority = 7, enabled = true)
+	@Test(priority = 8, enabled = true)
 	public void getOrderDetailsForQuotation() {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId()).when()
@@ -195,7 +224,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		setQuote_id(quote_id);
 	}
 
-	@Test(priority = 8)
+	@Test(priority = 9)
 	public void pickUpAndShip() {
 		Response response = given().log().all()
 		// @formatter:off
@@ -223,7 +252,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		Assert.assertEquals(bookStatus, "Picked");
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 10)
 	public void doCustomerFeedback() {
 		Response response = given().log().all()
 		// @formatter:off
@@ -244,7 +273,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		
 	}
 	
-	@Test(priority = 10)
+	@Test(priority = 11)
 	public void getOrderDetailsForPickupShipDetails() {
 		String response = given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId()).when()
@@ -257,7 +286,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	}
 
 	
-	@Test(priority = 11)
+	@Test(priority = 12)
 	public void invoce() {
 		Response response = given().log().all()
 		// @formatter:off
@@ -289,7 +318,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	//////////////////////////////////////////////////////////////////////////////
 	///////////////////////////Verify Begins/////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////
-	@Test(priority = 12,description = "GET_ORDER")
+	@Test(priority = 13,description = "GET_ORDER")
 	public void fetchOrderById() {
 		given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
@@ -299,7 +328,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 14)
 	public void fetchProductDetailsById() {
 		given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId())
@@ -310,7 +339,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 	}
 
 	// This is similar to click on verify link of first option of Inspect and Pack
-	@Test(priority = 14, description = "INSPECT_AND_PACK")
+	@Test(priority = 15, description = "INSPECT_AND_PACK")
 	public void verifyInspectAndPack() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -318,15 +347,38 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 		queryParam.put("order_id", getOrder_id());
 		queryParam.put("inspect_id", getInspect_id());
 
-		given().log().all().header("Content-Type", "application/json")
+		String response=given().log().all().header("Content-Type", "application/json")
 				.header("Authorization", ReusableMethods.getSessionId()).queryParams(queryParam)
 
-				.when().get(Resources.VERIFY_INSPECT_AND_PACK)
+				.when().log().all().get(Resources.VERIFY_INSPECT_AND_PACK)
 
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
+		
+		
+		//JsonPath var = new JsonPath(response);
+
+		//String transaction_id = var.get("data.transactionid");
+		//setTransaction_id(transaction_id);
+		
+	}
+	@Test(priority = 16,description = "VALIDATE_INSPECT_AND_PACK" , enabled= true)
+  public void inspect_Pack_Validate() {
+
+		
+		String response=given().log().all().header("Content-Type", "application/json")
+				.header("Authorization", ReusableMethods.getSessionId())
+
+				.when().get((Resources.VALIDATE_INSPECT_AND_PACK)+"/"+getTransaction_id())
+
+				.then().log().all().assertThat().statusCode(200).extract().response().toString();
+		//JsonPath var = new JsonPath(response);
+		//String transactionid = var.get("data.transactionid");
+		//setTransaction_id(transactionid);
+
+		
 	}
 
-	@Test(priority = 15, description = "RFQ")
+	@Test(priority = 17, description = "RFQ")
 	public void verifyRfq() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -342,8 +394,11 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 				.then().log().all().assertThat().statusCode(200).extract().response().asString();
 
 	}
+	
+	
+	
 
-	@Test(priority = 16, description = "BOOK")
+	@Test(priority = 18, description = "BOOK")
 	public void verifyBook() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -360,7 +415,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 17, description = "PICKUP_AND_SHIP")
+	@Test(priority = 19, description = "PICKUP_AND_SHIP")
 	public void verifyPickupAndShip() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -377,7 +432,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 18, description = "INVOICE")
+	@Test(priority = 20, description = "INVOICE")
 	public void verifyInvoice() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();
@@ -394,7 +449,7 @@ public class CreateSalesOrderAndVerifyOrdersTest extends BaseTest {
 
 	}
 
-	@Test(priority = 19, description = "FEEDBACK")
+	@Test(priority = 21, description = "FEEDBACK")
 	public void verifyCustomerAcceptance() {
 
 		HashMap<String, String> queryParam = new HashMap<String, String>();

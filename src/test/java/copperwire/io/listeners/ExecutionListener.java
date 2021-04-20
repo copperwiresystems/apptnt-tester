@@ -39,7 +39,8 @@ public class ExecutionListener implements IExecutionListener, ITestListener {
 		}
 		printStream = new PrintStream(new WriterOutputStream(fileWriter), true);
 		RestAssured.config = RestAssured.config()
-				.logConfig(LogConfig.logConfig().defaultStream(printStream).enablePrettyPrinting(false));
+				.logConfig(LogConfig.logConfig().defaultStream(printStream).enablePrettyPrinting(true));
+		
 	}
 
 	public void onFinish(ITestContext context) {

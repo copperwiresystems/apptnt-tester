@@ -10,7 +10,13 @@
 	<test name="SanityTest">
 		<classes>
 			<class
-				name="copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest" />
+				name="copperwire.io.tnt.orders.CreateSalesOrderAndVerifyOrdersTest" >
+				<methods>  
+               <include name="createNewSalesOrder"/>  
+               <include name ="createPallets"/>
+               <include name="savepalletinBlockchain"/>
+               </methods>  
+               </class>
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
